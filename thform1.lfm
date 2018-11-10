@@ -1,0 +1,134 @@
+object Form1: TForm1
+  Left = 187
+  Height = 620
+  Top = 61
+  Width = 640
+  BorderIcons = []
+  BorderStyle = bsNone
+  Caption = 'TheSnakeGame'
+  ClientHeight = 620
+  ClientWidth = 640
+  Color = clGreen
+  KeyPreview = True
+  OnCreate = ResetButtonClick
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '1.8.4.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 90
+    Top = -10
+    Width = 640
+    BevelColor = clRed
+    BevelInner = bvLowered
+    BevelWidth = 2
+    ClientHeight = 90
+    ClientWidth = 640
+    Color = clAqua
+    FullRepaint = False
+    ParentColor = False
+    TabOrder = 0
+    object CloserBTN: TButton
+      Left = 610
+      Height = 25
+      Top = 10
+      Width = 25
+      Caption = 'Х'
+      Color = clInfoBk
+      Font.Color = clRed
+      Font.Style = [fsBold]
+      OnClick = CloserBTNClick
+      ParentFont = False
+      TabOrder = 0
+      TabStop = False
+    end
+    object ResetButton: TButton
+      Left = 5
+      Height = 25
+      Top = 10
+      Width = 75
+      Caption = 'Reset Game'
+      OnClick = ResetButtonClick
+      TabOrder = 1
+      TabStop = False
+    end
+    object Label1: TLabel
+      Left = 120
+      Height = 13
+      Top = 10
+      Width = 3
+      Caption = ' '
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 120
+      Height = 13
+      Top = 30
+      Width = 3
+      Caption = ' '
+      ParentColor = False
+    end
+    object StaticText1: TStaticText
+      Left = 80
+      Height = 32
+      Top = 3
+      Width = 530
+      Caption = '   EasySnake - simple snake game'
+      Color = clGradientActiveCaption
+      Font.Color = clBlue
+      Font.Height = -27
+      Font.Style = [fsBold]
+      ParentFont = False
+      ParentColor = False
+      TabOrder = 2
+    end
+    object StaticText3: TStaticText
+      Left = 500
+      Height = 40
+      Top = 40
+      Width = 130
+      Caption = 'Arrows or WASD to move. Don''t bump in yourself!'
+      TabOrder = 3
+    end
+  end
+  object StaticText2: TStaticText
+    Left = 10
+    Height = 32
+    Top = 30
+    Width = 380
+    Caption = 'Your score >>'
+    Color = clAqua
+    Font.Color = clBlue
+    Font.Height = -20
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentColor = False
+    TabOrder = 1
+  end
+  object GMOVRPOPUP: TPopupNotifier
+    Color = clAqua
+    Icon.Data = {
+      07544269746D617000000000
+    }
+    Text = 'You lost, better luck next time :)'
+    Title = 'GAME OVER '
+    Visible = False
+    OnClose = GMOVRPOPUPClose
+    left = 430
+    top = 430
+  end
+  object FoodTime: TTimer
+    Interval = 250
+    OnTimer = Timer1StopTimer
+    left = 430
+    top = 510
+  end
+  object Death: TTimer
+    Interval = 1500
+    OnTimer = DeathTimer
+    OnStartTimer = DeathStartTimer
+    OnStopTimer = DeathStopTimer
+    left = 430
+    top = 470
+  end
+end
